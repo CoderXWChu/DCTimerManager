@@ -42,7 +42,7 @@ Use DCTimerManager, Just need one code to make a timer , and you not have to inv
 ```objc
 
 // 若需要, 你也可以这样: 
-// invalidate 定时器 不是必须的, 不会造成循环引用.
+// invalidate 定时器 不是必须的, 不会造成循环引用和内存泄漏.
 
 DCTimer *timer = [[DCTimer alloc]initWithTimeName:@"timerName2" fireTime:2.0 timeInterval:2.0 target:self selector:@selector(someSelector) repeat:YES];
 _timer = timer;
