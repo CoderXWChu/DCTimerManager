@@ -47,17 +47,16 @@ static DCTimerManager *_instance;
     if (timer) {
         [timer invalidate];
     }
-    else {
-        timer = [[DCTimer alloc] initWithTimeName:name
-                                         fireTime:start
-                                     timeInterval:timeinterval
-                                           target:self
-                                         selector:@selector(performActionWithTimerName:)
-                                           object:name
-                                           repeat:repeat];
-        [_timers setObject:timer forKey:name];
-        [_actions setObject:[action copy] forKey:name];
-    }
+    
+    timer = [[DCTimer alloc] initWithTimeName:name
+                                     fireTime:start
+                                 timeInterval:timeinterval
+                                       target:self
+                                     selector:@selector(performActionWithTimerName:)
+                                       object:name
+                                       repeat:repeat];
+    [_timers setObject:timer forKey:name];
+    [_actions setObject:[action copy] forKey:name];
 }
 
 - (void)timerWithTimerName:(NSString *)name
